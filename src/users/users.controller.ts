@@ -11,10 +11,7 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
-  @Post()
-  create(@Body() createUserDto: Partial<User>) {
-    return this.usersService.create(createUserDto);
-  }
+
 
   @Post('message')
   sendMessage(@Body() message: unknown) {
