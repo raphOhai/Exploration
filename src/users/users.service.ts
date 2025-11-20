@@ -23,6 +23,14 @@ export class UsersService implements OnModuleInit {
     return this.usersRepo.find();
   }
 
+  async findOne(id: number) {
+    return this.usersRepo.findOne({ where: { id } });
+  }
+
+  async updateUser(id: number, updateData: Partial<User>) {
+    await this.usersRepo.update(id, updateData);
+    return this.usersRepo.findOne({ where: { id } });
+  }
 
   async sendMessage(topic: string, message: unknown) {
     return this.kafkaProducer.sendMessage(topic, message);

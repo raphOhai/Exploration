@@ -21,6 +21,40 @@ export class User {
   @Column({ nullable: false })
   password: string;
 
+
+  @Column({ nullable: true })
+  strigaUserId?: string;
+
+  @Column({ type: 'json', nullable: true })
+  mobile?: {
+    countryCode: string;
+    number: string;
+  };
+
+  @Column({ type: 'json', nullable: true })
+  KYC?: {
+    emailVerified: boolean;
+    mobileVerified: boolean;
+    currentTier: number;
+    status: string;
+    tier0?: {
+      eligible: boolean;
+      status: string;
+    };
+    tier1?: {
+      eligible: boolean;
+      status: string;
+      inboundLimitConsumed?: {
+        all: string;
+        va: string;
+      };
+      inboundLimitAllowed?: {
+        all: string;
+        va: string;
+      };
+    };
+  };
+
   @Column({
     unique: true,
     nullable: false,

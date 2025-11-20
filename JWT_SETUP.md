@@ -191,3 +191,5 @@ const profile = await fetch('http://localhost:3000/auth/profile', {
 4. **Store tokens securely** (httpOnly cookies recommended for web)
 5. **Implement refresh tokens** for better security
 
+
+
