@@ -35,7 +35,7 @@ export class User {
   KYC?: {
     emailVerified: boolean;
     mobileVerified: boolean;
-    currentTier: number;
+    currentTier?: number;
     status: string;
     tier0?: {
       eligible: boolean;

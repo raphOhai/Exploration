@@ -24,7 +24,17 @@ export class StrigaController {
         const user = req.user;
         console.log(user, "user---------------------");
 
-        return this.strigaService.applyForAccount(data, user);
+        return this.strigaService.initialAccountCreation(data, user);
+    }
+
+    @Post('apply-for-card-step2')
+    async applyForCardStep2(
+        @Body() data: Partial<StrigaTypes.StrigaAccountCreationStep2Data>,
+        @Request() req,
+        @Headers('authorization') authHeader?: string,
+    ) {
+        const user = req.user;
+        return this.strigaService.acountCreationStep2(data, user);
     }
 }
 
